@@ -1,11 +1,11 @@
 <template lang="pug">
   div
-    p 作成中
+    Header
+    nuxt
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
-  layout: 'default'
+  name: 'default'
 }
 </script>
