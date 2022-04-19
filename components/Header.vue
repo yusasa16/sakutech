@@ -22,7 +22,7 @@ export default {
   height: 48px;
   background-color: #009CCB;
   user-select: none;
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 100;
 
