@@ -8,20 +8,26 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
+
 export default {
   name: 'IndexPage',
   layout: 'default',
   data() {
-    return {
-      posts: []
-    };
+    return {}
   },
   mounted() {
-    this.$axios
-      .get('http://www.wp-dummy.yusaku-tech.com/wp-json/wp/v2/posts')
-      .then((res) => {
-        this.posts = res.data
-      })
+    this.getPosts()
+  },
+  methods: {
+    ...mapActions({
+      getPosts: 'getPosts',
+    }),
+  },
+  computed: {
+    ...mapState({
+      posts: (state) => state.posts,
+    }),
   },
 }
 </script>
