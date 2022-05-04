@@ -1,7 +1,8 @@
 <template lang="pug">
   div
-    p 作成中
-    article(v-for="post in posts" :key="post.id")
+    BlogCardArea
+    //- p 作成中
+    //- article(v-for="post in posts" :key="post.id")
       div.posts
         h1(v-html='post.title.rendered')
         div(v-html='post.content.rendered')
