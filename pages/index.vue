@@ -13,21 +13,14 @@ import { mapActions, mapState } from 'vuex'
 export default {
   name: 'IndexPage',
   layout: 'default',
-  data() {
-    return {}
+  computed: {
+    ...mapState(['posts'])
   },
   mounted() {
     this.getPosts()
   },
   methods: {
-    ...mapActions({
-      getPosts: 'getPosts',
-    }),
-  },
-  computed: {
-    ...mapState({
-      posts: (state) => state.posts,
-    }),
+    ...mapActions(['getPosts']),
   },
 }
 </script>
