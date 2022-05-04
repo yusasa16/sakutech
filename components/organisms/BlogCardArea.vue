@@ -1,12 +1,23 @@
 <template lang="pug">
   ul.blogCardArea
-    li: BlogCard
-    li: BlogCard
-    li: BlogCard
+    li(v-for="(post, index) in posts" :key="index")
+      BlogCard(
+        :title="post.title.rendered"
+      )
 </template>
 <script>
-export default {
+import { mapActions, mapState } from 'vuex'
 
+export default {
+  computed: {
+    ...mapState(['posts'])
+  },
+  mounted() {
+    this.getPosts()
+  },
+  methods: {
+    ...mapActions(['getPosts'])
+  },
 }
 </script>
 <style lang="scss">

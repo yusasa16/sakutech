@@ -2,34 +2,32 @@
   .blogCard
     NuxtLink(to="__URL__")
       .blogCard__thumb
-        img(src="/images/common/img_thumb.png")
+        img(:src="thumb")
       .blogCard__text
         .blogCard__meta
           time.blogCard__time(data-time="2021-01-01") 2021/01/01
           span.blogCard__category カテゴリー
-        p.blogCard__title タイトルタイトルタイトルタイトルタイトルタイトルタ
+        p.blogCard__title {{ title }}
         span.blogCard__more 続きを読む
 
 </template>
 <script>
 export default {
-
+  props: {
+    thumb: {
+      type: String,
+      default: '/images/common/img_thumb.png',
+    },
+    title: {
+      type: String,
+    },
+  }
 }
 </script>
 <style lang="scss">
 .blogCard {
-  // width: 300px;
-  // margin-bottom: 60px;
   border-radius: 30px;
   box-shadow: 0 0 6px rgba(#000, .16);
-
-  // @media (max-width: 1024px) and (min-width: 600px) {
-  //   width: calc(300 / 1024 * 100vw);
-  // }
-
-  // @media (max-width: 599px) {
-  //   margin: 0 auto 30px;
-  // }
 
   &__thumb {
     height: 212px;
