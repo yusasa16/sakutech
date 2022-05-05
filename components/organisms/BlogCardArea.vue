@@ -3,6 +3,7 @@
     li(v-for="(post, index) in posts" :key="index")
       BlogCard(
         :title="post.title.rendered"
+        :date="post.date"
       )
 </template>
 <script>

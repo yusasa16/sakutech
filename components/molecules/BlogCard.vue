@@ -5,7 +5,7 @@
         img(:src="blogThumb")
       .blogCard__text
         .blogCard__meta
-          time.blogCard__time(data-time="2021-01-01") 2021/01/01
+          time.blogCard__time(:data-time="blogDateYear + '-' + blogDateMonth + '-' + blogDateDate") {{ blogDateYear + '/' + blogDateMonth + '/' + blogDateDate }}
           span.blogCard__category カテゴリー
         p.blogCard__title {{ blogTitle }}
         span.blogCard__more 続きを読む
@@ -21,22 +21,35 @@ export default {
     title: {
       type: String,
     },
+    date: {
+      type: String,
+    }
   },
   data() {
     return {
       blogThumb: this.thumb,
       blogTitle: this.title,
+      blogDateYear: '',
+      blogDateMonth: '',
+      blogDateDate: '',
     }
   },
   mounted() {
-    this.editTitle()
+    this.editTitle();
+    this.editDate();
   },
   methods: {
     editTitle() {
       if(this.blogTitle.length > 28) {
         this.blogTitle = this.blogTitle.substr(0, 28) + '...';
       }
-    }
+    },
+    editDate() {
+      const initDate = new Date(this.date);
+      this.blogDateYear = initDate.getFullYear();
+      this.blogDateMonth = initDate.getMonth() + 1;
+      this.blogDateDate = initDate.getDate();
+    },
   },
 }
 </script>
