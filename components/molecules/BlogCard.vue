@@ -2,12 +2,12 @@
   .blogCard
     NuxtLink(to="__URL__")
       .blogCard__thumb
-        img(:src="thumb")
+        img(:src="blogThumb")
       .blogCard__text
         .blogCard__meta
           time.blogCard__time(data-time="2021-01-01") 2021/01/01
           span.blogCard__category カテゴリー
-        p.blogCard__title {{ title }}
+        p.blogCard__title {{ blogTitle }}
         span.blogCard__more 続きを読む
 
 </template>
@@ -21,7 +21,23 @@ export default {
     title: {
       type: String,
     },
-  }
+  },
+  data() {
+    return {
+      blogThumb: this.thumb,
+      blogTitle: this.title,
+    }
+  },
+  mounted() {
+    this.editTitle()
+  },
+  methods: {
+    editTitle() {
+      if(this.blogTitle.length > 28) {
+        this.blogTitle = this.blogTitle.substr(0, 28) + '...';
+      }
+    }
+  },
 }
 </script>
 <style lang="scss">
