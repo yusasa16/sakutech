@@ -4,9 +4,17 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'IndexPage',
   layout: 'default',
+  mounted() {
+    this.getPosts()
+  },
+  methods: {
+    ...mapActions(['getPosts'])
+  },
 }
 </script>
 

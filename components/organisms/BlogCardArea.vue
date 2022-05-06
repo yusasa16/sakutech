@@ -7,17 +7,11 @@
       )
 </template>
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   computed: {
     ...mapState(['posts'])
-  },
-  mounted() {
-    this.getPosts()
-  },
-  methods: {
-    ...mapActions(['getPosts'])
   },
 }
 </script>
