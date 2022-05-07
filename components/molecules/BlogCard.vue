@@ -6,7 +6,7 @@
       .blogCard__text
         .blogCard__meta
           time.blogCard__time(:data-time="blogDateYear + '-' + blogDateMonth + '-' + blogDateDate") {{ blogDateYear }}/{{ blogDateMonth }}/{{ blogDateDate }}
-          span.blogCard__category カテゴリー
+          span.blogCard__category {{ blogCategory }}
         p.blogCard__title {{ blogTitle }}
         span.blogCard__more 続きを読む
 
@@ -20,6 +20,7 @@ export default {
     return {
       blogThumb: this.post.featured_media,
       blogTitle: this.post.title.rendered,
+      blogCategory: this.post.categories[0],
       blogDateYear: '',
       blogDateMonth: '',
       blogDateDate: '',
@@ -29,6 +30,7 @@ export default {
     this.editThumb();
     this.editTitle();
     this.editDate();
+    this.editCategory();
   },
   methods: {
     async editThumb() {
@@ -49,6 +51,10 @@ export default {
       this.blogDateYear = initDate.getFullYear();
       this.blogDateMonth = initDate.getMonth() + 1;
       this.blogDateDate = initDate.getDate();
+    },
+    async editCategory() {
+      const res = await this.$axios.$get(`http://www.wp-dummy.yusaku-tech.com/wp-json/wp/v2/categories/${this.blogCategory}`)
+      this.blogCategory = res.name;
     },
   },
 }
