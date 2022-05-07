@@ -5,7 +5,7 @@
         img(:src="blogThumb")
       .blogCard__text
         .blogCard__meta
-          time.blogCard__time(:data-time="blogDateYear + '-' + blogDateMonth + '-' + blogDateDate") {{ blogDateYear + '/' + blogDateMonth + '/' + blogDateDate }}
+          time.blogCard__time(:data-time="blogDateYear + '-' + blogDateMonth + '-' + blogDateDate") {{ blogDateYear }}/{{ blogDateMonth }}/{{ blogDateDate }}
           span.blogCard__category カテゴリー
         p.blogCard__title {{ blogTitle }}
         span.blogCard__more 続きを読む
@@ -14,38 +14,38 @@
 <script>
 export default {
   props: {
-    thumb: {
-      type: String,
-      default: '/images/common/img_thumb.png',
-    },
-    title: {
-      type: String,
-    },
-    date: {
-      type: String,
-    }
+    post: Object,
   },
   data() {
     return {
-      blogThumb: this.thumb,
-      blogTitle: this.title,
+      blogThumb: this.post.featured_media,
+      blogTitle: this.post.title.rendered,
       blogDateYear: '',
       blogDateMonth: '',
       blogDateDate: '',
     }
   },
   mounted() {
+    this.editThumb();
     this.editTitle();
     this.editDate();
   },
   methods: {
+    async editThumb() {
+      if(this.blogThumb === 0) {
+        this.blogThumb = '/images/common/img_thumb.png';
+      } else {
+        const response = await this.$axios.$get(`http://www.wp-dummy.yusaku-tech.com/wp-json/wp/v2/media/${this.blogThumb}`)
+        this.blogThumb = response.source_url;
+      }
+    },
     editTitle() {
       if(this.blogTitle.length > 28) {
         this.blogTitle = this.blogTitle.substr(0, 28) + '...';
       }
     },
     editDate() {
-      const initDate = new Date(this.date);
+      const initDate = new Date(this.post.date);
       this.blogDateYear = initDate.getFullYear();
       this.blogDateMonth = initDate.getMonth() + 1;
       this.blogDateDate = initDate.getDate();
