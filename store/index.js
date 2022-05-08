@@ -10,7 +10,7 @@ export const mutations = {
 
 export const actions = {
   async getPosts ({commit}) {
-    const response = await this.$axios.$get('http://www.wp-dummy.yusaku-tech.com/wp-json/wp/v2/posts')
+    const response = await this.$axios.$get(`${this.$config.apiUrl}/wp-json/wp/v2/posts`)
     commit('setPosts', response);
   }
 }

@@ -37,7 +37,7 @@ export default {
       if(this.blogThumb === 0) {
         this.blogThumb = '/images/common/img_thumb.png';
       } else {
-        const response = await this.$axios.$get(`http://www.wp-dummy.yusaku-tech.com/wp-json/wp/v2/media/${this.blogThumb}`)
+        const response = await this.$axios.$get(`${this.$config.apiUrl}/wp-json/wp/v2/media/${this.blogThumb}`)
         this.blogThumb = response.source_url;
       }
     },
@@ -53,7 +53,7 @@ export default {
       this.blogDateDate = initDate.getDate();
     },
     async editCategory() {
-      const res = await this.$axios.$get(`http://www.wp-dummy.yusaku-tech.com/wp-json/wp/v2/categories/${this.blogCategory}`)
+      const res = await this.$axios.$get(`${this.$config.apiUrl}/wp-json/wp/v2/categories/${this.blogCategory}`)
       this.blogCategory = res.name;
     },
   },
