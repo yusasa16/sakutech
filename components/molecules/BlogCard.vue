@@ -1,6 +1,7 @@
 <template lang="pug">
   .blogCard
-    NuxtLink(to="__URL__")
+    //- NuxtLink(:to="'/blog/' + post.slug")
+    NuxtLink(:to="{name: 'blog-slug', params: {slug: post.slug}}")
       .blogCard__thumb
         img(:src="blogThumb")
       .blogCard__text
@@ -26,7 +27,7 @@ export default {
       blogDateDate: '',
     }
   },
-  mounted() {
+  created() {
     this.getThumb();
     this.getTitle();
     this.getDate();
