@@ -18,43 +18,45 @@ export default {
   },
   data() {
     return {
-      blogThumb: this.post.featured_media,
-      blogTitle: this.post.title.rendered,
-      blogCategory: this.post.categories[0],
+      blogThumb: '',
+      blogTitle: '',
+      blogCategory: '',
       blogDateYear: '',
       blogDateMonth: '',
       blogDateDate: '',
     }
   },
   mounted() {
-    this.editThumb();
-    this.editTitle();
-    this.editDate();
-    this.editCategory();
+    this.getThumb();
+    this.getTitle();
+    this.getDate();
+    this.getCategory();
   },
   methods: {
-    async editThumb() {
-      if(this.blogThumb === 0) {
+    async getThumb() {
+      if(this.post.featured_media === 0) {
         this.blogThumb = '/images/common/img_thumb.png';
       } else {
-        const response = await this.$axios.$get(`${this.$config.apiUrl}/wp-json/wp/v2/media/${this.blogThumb}`)
+        const response = await this.$axios.$get(`${this.$config.apiUrl}/wp-json/wp/v2/media/${this.post.featured_media}`)
         this.blogThumb = response.source_url;
       }
     },
-    editTitle() {
-      if(this.blogTitle.length > 28) {
-        this.blogTitle = this.blogTitle.substr(0, 28) + '...';
+    getTitle() {
+      if(this.post.title.rendered.length > 28) {
+        this.blogTitle = this.post.title.rendered.substr(0, 28) + '...';
+      } else {
+        this.blogTitle = this.post.title.rendered;
       }
     },
-    editDate() {
+    getDate() {
       const initDate = new Date(this.post.date);
       this.blogDateYear = initDate.getFullYear();
       this.blogDateMonth = initDate.getMonth() + 1;
       this.blogDateDate = initDate.getDate();
     },
-    async editCategory() {
-      const res = await this.$axios.$get(`${this.$config.apiUrl}/wp-json/wp/v2/categories/${this.blogCategory}`)
-      this.blogCategory = res.name;
+    async getCategory() {
+      const response = await this.$axios.$get(`${this.$config.apiUrl}/wp-json/wp/v2/categories/${this.post.categories[0]}`)
+      this.blogCategory = response.name;
     },
   },
 }
