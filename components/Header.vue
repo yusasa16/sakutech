@@ -39,7 +39,7 @@ export default {
     h1 {
       a {
         color: #fff;
-        font-size: 3rem;
+        font-size: calc(30 / 16 * 1rem);
         font-family: 'Barlow', sans-serif;
         font-weight: 100;
         line-height: 48px;
@@ -58,7 +58,7 @@ export default {
 
         a {
           color: #fff;
-          font-size: 1.6rem;
+          // font-size: 1.6rem;
           text-align: center;
           text-decoration: none;
           display: inline-block;

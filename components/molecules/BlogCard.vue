@@ -105,7 +105,7 @@ export default {
   &__meta {
     display: flex;
     justify-content: space-between;
-    font-size: 1.2rem;
+    font-size: calc(12 / 16 * 1rem);
   }
 
   &__time {
@@ -126,7 +126,7 @@ export default {
   }
 
   &__title {
-    font-size: 1.8rem;
+    font-size: calc(18 / 16 * 1rem);
     line-height: 2.5rem;
     margin-top: 12px;
 
@@ -138,7 +138,7 @@ export default {
   &__more {
     margin-top: 12px;
     color: #009CCB;
-    font-size: 1.4rem;
+    font-size: calc(14 / 16 * 1rem);
     text-align: center;
     display: block;
   }

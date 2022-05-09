@@ -41,33 +41,31 @@ export default {
     }
 
     h1 {
-      @apply text-8xl mt-32 mb-8
+      @apply text-5xl mt-16 mb-8
     }
 
     h2 {
-      @apply text-7xl mt-28 mb-7
+      @apply text-4xl mt-14 mb-7
     }
 
     h3 {
-      @apply text-6xl mt-24 mb-6
+      @apply text-3xl mt-12 mb-6
     }
 
     h4 {
-      @apply text-5xl mt-20 mb-5
+      @apply text-2xl mt-10 mb-5
     }
 
     h5 {
-      @apply text-4xl mt-16 mb-4
+      @apply text-xl mt-8 mb-4
     }
 
     h6 {
-      @apply text-3xl mt-12 mb-3
+      @apply text-lg mt-6 mb-3
     }
 
     p {
-      font-size: 1.6rem;
-
-      @apply my-4
+      @apply my-2
     }
   }
 }
