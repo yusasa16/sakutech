@@ -1,6 +1,7 @@
 <template lang="pug">
   div
-    BlogCardArea
+   .container
+      BlogCardArea.mt-24
 </template>
 
 <script>
@@ -19,14 +20,5 @@ export default {
 </script>
 
 <style lang="scss">
-.posts {
-  > h1 {
-    font-size: 2.4rem;
-    background: beige;
-  }
 
-  > div {
-    padding: 1em;
-  }
-}
 </style>

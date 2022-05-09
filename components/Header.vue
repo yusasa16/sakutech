@@ -2,7 +2,7 @@
   header.header
     .header__inner
       .header__logo
-        h1: NuxtLink(to="/") temp
+        h1: NuxtLink(to="/") sakutech
       nav.header__nav
         ul
           li: NuxtLink(to="__URL__") nav1
