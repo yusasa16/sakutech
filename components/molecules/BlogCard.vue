@@ -127,11 +127,12 @@ export default {
 
   &__title {
     font-size: calc(18 / 16 * 1rem);
-    line-height: 2.5rem;
+    line-height: calc(25 / 16 * 1rem);
     margin-top: 12px;
+    -webkit-line-clamp: 2;
 
     @media (min-width: 600px) {
-      min-height: 50px;
+      min-height: calc((25 / 16 * 1rem) * 2);
     }
   }
 

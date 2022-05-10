@@ -10,11 +10,11 @@ import { mapActions } from 'vuex'
 export default {
   name: 'IndexPage',
   layout: 'default',
-  mounted() {
-    this.getPosts()
+  created() {
+    this.actionPosts()
   },
   methods: {
-    ...mapActions(['getPosts'])
+    ...mapActions(['actionPosts'])
   },
 }
 </script>

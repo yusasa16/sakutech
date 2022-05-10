@@ -1,16 +1,16 @@
 <template lang="pug">
   ul.blogCardArea
-    li(v-for="(post, index) in posts" :key="index")
+    li(v-for="(post, index) in this.getPosts" :key="index")
       BlogCard.mb-12(
         :post="post"
       )
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   computed: {
-    ...mapState(['posts'])
+    ...mapGetters(['getPosts'])
   },
 }
 </script>
