@@ -11,10 +11,10 @@ export default {
   name: 'IndexPage',
   layout: 'default',
   created() {
-    this.actionPosts()
+    this.asyncPosts()
   },
   methods: {
-    ...mapActions(['actionPosts'])
+    ...mapActions(['asyncPosts'])
   },
 }
 </script>
