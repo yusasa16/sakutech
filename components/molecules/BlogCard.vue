@@ -65,7 +65,7 @@ export default {
 <style lang="scss">
 .blogCard {
   border-radius: 30px;
-  box-shadow: 0 0 6px rgba(#000, .16);
+  box-shadow: 0 0 6px rgba($darkest-color, .16);
 
   &__thumb {
     height: 212px;
@@ -109,14 +109,14 @@ export default {
   }
 
   &__time {
-    color: #696969;
+    color: $font-color-lighten;
   }
 
   &__category {
     width: 132px;
     line-height: 18px;
-    background-color: #009CCB;
-    color: #fff;
+    background-color: $primary-color;
+    color: $lightest-color;
     font-weight: 300;
     text-align: center;
 
@@ -138,7 +138,7 @@ export default {
 
   &__more {
     margin-top: 12px;
-    color: #009CCB;
+    color: $primary-color;
     font-size: calc(14 / 16 * 1rem);
     text-align: center;
     display: block;

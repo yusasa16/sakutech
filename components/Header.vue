@@ -20,7 +20,7 @@ export default {
 .header {
   width: 100%;
   height: 48px;
-  background-color: #009CCB;
+  background-color: $primary-color;
   user-select: none;
   position: sticky;
   top: 0;
@@ -38,7 +38,7 @@ export default {
 
     h1 {
       a {
-        color: #fff;
+        color: $lightest-color;
         font-size: calc(30 / 16 * 1rem);
         font-family: 'Barlow', sans-serif;
         font-weight: 100;
@@ -57,7 +57,7 @@ export default {
         height: 100%;
 
         a {
-          color: #fff;
+          color: $lightest-color;
           // font-size: 1.6rem;
           text-align: center;
           text-decoration: none;
@@ -67,7 +67,7 @@ export default {
           line-height: 48px;
 
             &:hover {
-              background-color: rgba($color: #fff, $alpha: .4);
+              background-color: rgba($color: $lightest-color, $alpha: .4);
               transition: all .6s;
           }
         }

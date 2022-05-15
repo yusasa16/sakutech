@@ -1,0 +1,12 @@
+/* -------------------------------------
+  definition
+-------------------------------------*/
+// color
+$lightest-color: #fff;
+$darkest-color: #000;
+$gray-color: lighten($darkest-color, 15%);
+
+$font-color-primary: #333;
+$font-color-lighten: lighten($font-color-primary, 15%);
+
+$primary-color: #009ccb;
