@@ -1,6 +1,5 @@
 <template lang="pug">
   .blogCard
-    //- NuxtLink(:to="'/blog/' + post.slug")
     NuxtLink(:to="{name: 'blog-slug', params: {slug: post.slug}}")
       .blogCard__thumb
         img(:src="blogThumb")
@@ -66,6 +65,11 @@ export default {
 .blogCard {
   border-radius: 30px;
   box-shadow: 0 0 6px rgba($darkest-color, .16);
+
+  > a {
+    color: $font-color-primary;
+    text-decoration: none;
+  }
 
   &__thumb {
     height: 212px;

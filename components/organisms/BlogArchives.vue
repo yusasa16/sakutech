@@ -1,0 +1,26 @@
+<template lang="pug">
+  .container
+    pagination.mt-24(
+      :posts="this.getPosts"
+      :slug="slug"
+    )
+    BlogCardArea.mt-24(
+      :posts="this.getPosts"
+      :slug="slug"
+    )
+</template>
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+  props: {
+    slug: String
+  },
+  computed: {
+    ...mapGetters(['getPosts'])
+  },
+}
+</script>
+<style lang="scss">
+
+</style>

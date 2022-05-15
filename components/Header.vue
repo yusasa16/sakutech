@@ -43,6 +43,7 @@ export default {
         font-family: 'Barlow', sans-serif;
         font-weight: 100;
         line-height: 48px;
+        text-decoration: none;
       }
     }
   }

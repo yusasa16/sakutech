@@ -1,16 +1,29 @@
 <template lang="pug">
   ul.blogCardArea
-    li(v-for="(post, index) in this.getPosts" :key="index")
+    li(v-for="(post, index) in postsDisplay" :key="index")
       BlogCard.mb-12(
         :post="post"
       )
 </template>
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
-  computed: {
-    ...mapGetters(['getPosts'])
+  props: {
+    posts: Array,
+    slug: String,
+  },
+  data() {
+    return {
+      postsDisplay: [],
+    }
+  },
+  mounted() {
+    this.postsDisplay = this.getDisplayPosts(this.posts, this.slug);
+  },
+  methods: {
+    getDisplayPosts(posts, slug) {
+      const slugPer = slug * 12;
+      return posts.slice(slugPer - 12, slugPer);
+    }
   },
 }
 </script>

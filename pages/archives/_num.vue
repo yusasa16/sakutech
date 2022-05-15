@@ -13,11 +13,10 @@ export default {
   layout: 'default',
   data() {
     return {
-      // slug: this.$route.params.slug,
-      slug: '1',
+      slug: this.$route.params.num,
     }
   },
-  created() {
+  mounted() {
     this.asyncPosts()
   },
   methods: {
