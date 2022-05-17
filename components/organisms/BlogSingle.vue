@@ -1,6 +1,8 @@
 <template lang="pug">
   article.blogDetail
     h2.blogDetail__title.mb-24 {{ title }}
+    .blogDetail__thumb.mb-24(v-if="blogThumb")
+      img(:src="blogThumb")
     section.blogDetail__content(v-html="content")
 </template>
 <script>
@@ -13,6 +15,7 @@ export default {
       post: '',
       title: '',
       content: '',
+      blogThumb: '',
     }
   },
   created() {
@@ -24,6 +27,13 @@ export default {
       this.post = post[0]
       this.title = this.post.title.rendered
       this.content = this.post.content.rendered
+
+      if(this.post.featured_media === 0) {
+        this.blogThumb = false;
+      } else {
+        const response = await this.$axios.$get(`${this.$config.apiUrl}/wp-json/wp/v2/media/${this.post.featured_media}`)
+        this.blogThumb = response.source_url;
+      }
     },
   },
 }
@@ -33,6 +43,14 @@ export default {
   &__title {
     font-size: 60px;
     font-family: 'Barlow', sans-serif;
+  }
+
+  &__thumb {
+    text-align: center;
+
+    >img {
+      display: inline;
+    }
   }
 
   &__content {

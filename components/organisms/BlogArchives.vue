@@ -1,10 +1,10 @@
 <template lang="pug">
   .container
-    pagination.mt-24(
+    BlogCardArea.mt-24(
       :posts="this.getPosts"
       :slug="slug"
     )
-    BlogCardArea.mt-24(
+    pagination.mb-24(
       :posts="this.getPosts"
       :slug="slug"
     )
