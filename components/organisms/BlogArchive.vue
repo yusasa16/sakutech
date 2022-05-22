@@ -1,6 +1,6 @@
 <template lang="pug">
-  .container
-    BlogCardArea.mt-24(
+  v-container
+    BlogCards.mt-24(
       :posts="this.getPosts"
       :slug="slug"
     )

@@ -1,14 +1,24 @@
 <template lang="pug">
+  //- v-app-bar(
+  //-     app
+  //-     shrink-on-scroll
+  //- )
+  //-   v-app-bar-nav-ico
+
+  //-   v-toolbar-title sakutech
+
+  //-   v-spacer
+
   header.header
     .header__inner
       .header__logo
         h1: NuxtLink(to="/") sakutech
       nav.header__nav
         ul
-          li: NuxtLink(to="__URL__") nav1
-          li: NuxtLink(to="__URL__") nav2
-          li: NuxtLink(to="__URL__") nav3
-          li: NuxtLink(to="__URL__") nav4
+          li: NuxtLink(to="/") nav1
+          li: NuxtLink(to="/") nav2
+          li: NuxtLink(to="/") nav3
+          li: NuxtLink(to="/") nav4
 </template>
 <script>
 export default {

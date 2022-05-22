@@ -1,19 +1,1 @@
-body {
-  font-size: calc(16 / 16 * 1rem);
-  color: $font-color-primary;
-}
 
-.container {
-  max-width: 1040px;
-  padding: 0 30px;
-  margin: 0 auto;
-}
-
-a {
-  color: $primary-color;
-  text-decoration: underline;
-
-  &:hover {
-    text-decoration: none;
-  }
-}

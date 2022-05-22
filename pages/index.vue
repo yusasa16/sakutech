@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    BlogArchives(
+    BlogArchive(
       :slug="slug"
     )
 </template>
